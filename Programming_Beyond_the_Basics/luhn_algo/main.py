@@ -1,12 +1,12 @@
-# Validates card numbers using the luhn alg
+# Validates credit card numbers using the luhn alg
 def validate_credit_card(numbers: int):
     string_numbers = str(numbers)
     sum = 0
-    for i in range(len(string_numbers), 0, -1):
+    for i, n in enumerate(reversed(string_numbers)):
         if i % 2 == 0:
-            sum += int(string_numbers[i - 1])
+            sum += int(n)
         else:
-            result = 2 * int(string_numbers[i - 1])
+            result = 2 * int(n)
             if result > 9:
                 result = result - 9
             sum += result
@@ -15,4 +15,6 @@ def validate_credit_card(numbers: int):
     return False
 
 
-print(validate_credit_card(5532445247038576))
+if __name__ == "__main__":
+    assert validate_credit_card(5532445247038576)
+    print("OK")
