@@ -35,7 +35,7 @@ def check_game_over():
                 return True, f"{i} WON!"
 
     if all(not e.isnumeric() for e in GRID):
-        return True, "DRAW"
+        return True, "DRAW!"
     return False, ""
 
 
@@ -66,6 +66,8 @@ PLAYER 2: {PLAYER_2}
             break
 
         player_input = ask_for_player_input("1", PLAYER_1)
+        while not (GRID[int(player_input) - 1]).isnumeric():
+            player_input = ask_for_player_input("1", PLAYER_1)
         GRID[int(player_input) - 1] = PLAYER_1
         show_grid_status()
 
@@ -75,6 +77,9 @@ PLAYER 2: {PLAYER_2}
             break
 
         player_input = ask_for_player_input("2", PLAYER_2)
+        while not (GRID[int(player_input) - 1]).isnumeric():
+            player_input = ask_for_player_input("2", PLAYER_1)
+
         GRID[int(player_input) - 1] = PLAYER_2
         show_grid_status()
 
