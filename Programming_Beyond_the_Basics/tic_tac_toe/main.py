@@ -41,12 +41,12 @@ def check_game_over():
 
 def show_grid_status():
     print(
-        f"""
-GRID: 
-{GRID[0:3]}
-{GRID[3:6]}
-{GRID[6:9]}
-"""
+        "\n---+---+---\n".join(
+            (
+                "|".join(f" {c} " for c in row)
+                for row in (GRID[0:3], GRID[3:6], GRID[6:9])
+            )
+        )
     )
 
 
