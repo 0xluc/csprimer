@@ -70,3 +70,16 @@ def reduce(f, xs, init=None):
 
 
 print(reduce(lambda acc, x: acc + x, [1, 2, 3, 4]))
+print(reduce(lambda acc, x: acc + x, [1, 2, 3, 4], 10))
+
+
+def rabbit_pairs(n):
+    if n < 0:
+        return "Erro"
+    elif n in [0, 1]:
+        return n
+    else:
+        return rabbit_pairs(n - 2) + rabbit_pairs(n - 1)
+
+
+print(rabbit_pairs(20))
